@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despacho de Abogados - IurisLegal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="mouse-trail-container"></div> 
+    
+    <header class="header">
+        <div class="logo">
+            <a href="#">IurisLegal</a>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" id="home">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Tu Asesoría Legal de Confianza</h1>
+                <p>Ofrecemos soluciones jurídicas claras y efectivas para cada desafío.</p>
+                <a href="#contacto" class="cta-button">Consulta Gratuita</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <section id="servicios" class="services-section">
+            <h2 data-aos="fade-right" data-aos-delay="100">Nuestras Áreas de Práctica</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Derecho Civil</h3>
+                    <p>Contratos, herencias, propiedad y responsabilidad civil. Expertos en mediación y litigios.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Derecho Penal</h3>
+                    <p>Defensa y acusación en procedimientos penales complejos. Garantizamos su defensa integral.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Derecho Laboral</h3>
+                    <p>Conflictos laborales, despidos, indemnizaciones y seguridad social. Protegemos tus derechos.</p>
+                </div>
+                 <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <h3>Derecho Mercantil</h3>
+                    <p>Constitución de sociedades, contratos mercantiles y asesoramiento empresarial.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="about-section">
+            <div class="about-content" data-aos="fade-right" data-aos-duration="1000">
+                <h2>Quiénes Somos</h2>
+                <p>Somos un equipo de abogados comprometidos con la excelencia y la ética. Nuestra misión es brindar un servicio legal personalizado, adaptado a las necesidades de cada cliente, con transparencia y dedicación. Creemos firmemente en la justicia y trabajamos incansablemente para alcanzar los mejores resultados para usted.</p>
+            </div>
+            <div class="about-image" data-aos="fade-left" data-aos-duration="1000">
+                <img src="img/justice.jpg" alt="Equipo de abogados">
+            </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <h2 data-aos="fade-up">Contacta con Nosotros</h2>
+            <form action="https://formspree.io/f/mgvlrnwk" method="POST" id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="200">
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <textarea name="mensaje" rows="5" placeholder="Tu mensaje..." required></textarea>
+                <button type="submit" class="cta-button">Enviar Mensaje</button>
+            </form>
+            <div id="form-status" class="form-status"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-block">
+                <h3>Contacto Directo</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Calle de la Justicia, 123, Madrid, España</p>
+                <p><i class="fas fa-phone-alt"></i> +34 91 123 45 67</p>
+                <p><i class="fas fa-envelope"></i> info@justiciayestrategia.com</p>
+            </div>
+            <div class="footer-block">
+                <h3>Encuéntranos</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.787720993079!2d-3.703212684606709!3d40.42875157936302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228965f7c3583%3A0x6b4c10a40f2f3d7!2sCalle%20de%20la%20Justicia%2C%2028004%20Madrid%2C%20Spain!5e0!3m2!1sen!2ses!4v1625078123456!5m2!1sen!2ses" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="footer-block">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright-text">&copy; 2025 IurisLegal. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/+34679958614?text=Hola, me gustaría saber más acerca de tus servicios, si puedes contáctame" class="whatsapp-button" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <div id="cookie-consent-modal" class="cookie-consent-modal">
+        <div class="cookie-content">
+            <p>Usamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="#">política de cookies</a>.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-accept-button">Aceptar todo</button>
+                <button id="reject-cookies" class="cookie-reject-button">Rechazar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
