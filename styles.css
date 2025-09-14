@@ -161,7 +161,7 @@ p {
     overflow: hidden;
 
     /* --- Aquí se inserta la imagen de fondo --- */
-    background-image: url('img/justice.jpg'); /* 👈 Cambia 'law-background.jpg' por el nombre de tu archivo */
+    background-image: url('Justice.jpg'); /* 👈 Cambia 'law-background.jpg' por el nombre de tu archivo */
     background-size: cover; /* Ajusta la imagen para que cubra toda la sección */
     background-position: center center; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
