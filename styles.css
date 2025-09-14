@@ -3,11 +3,13 @@
     --primary-color: #2c3e50; /* Azul oscuro elegante */
     --secondary-color: #34495e; /* Azul grisáceo */
     --accent-color: #3498db; /* Azul vibrante para CTA */
-    --text-color: #7f8c8d; /* Gris suave para texto general */
+    /* Mejora de accesibilidad: Se aumentó el contraste del texto para cumplir con WCAG */
+    --text-color: #34495e; /* Antes era #7f8c8d, ahora con mejor contraste */
     --light-bg: #f4f7f6; /* Fondo muy claro */
     --dark-bg: #2c3e50; /* Fondo oscuro para footer */
     --white-color: #ffffff;
     --hover-dark: #233140; /* Hover para primary */
+    --accent-dark: #2980b9; /* Nuevo hover para accent-color */
 }
 
 * {
@@ -25,7 +27,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-bg);
-    overflow-x: hidden;
+    /* Se elimina 'overflow-x: hidden' para evitar problemas con el scroll en algunos dispositivos */
 }
 
 a {
@@ -35,7 +37,8 @@ a {
 }
 
 a:hover {
-    color: var(--primary-color);
+    /* Se ajusta el color de hover para que sea consistente con la paleta de colores */
+    color: var(--accent-dark);
     transform: translateY(-2px);
 }
 
@@ -45,9 +48,10 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1rem; }
-h2 { font-size: 2.8rem; margin-bottom: 2.5rem; position: relative; display: inline-block;}
-h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+/* Se mejoran los tamaños de fuente para una mejor experiencia móvil (Mobile-first) */
+h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; }
+h2 { font-size: 1.8rem; margin-bottom: 2.5rem; position: relative; display: inline-block;}
+h3 { font-size: 1.5rem; margin-bottom: 1rem; }
 
 h2::after {
     content: '';
@@ -62,14 +66,14 @@ h2::after {
 }
 
 p {
-    font-size: 1.15rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .cta-button {
@@ -88,7 +92,9 @@ p {
 }
 
 .cta-button:hover {
-    background-color: var(--hover-dark);
+    /* Se ajusta el color de hover para que coincida con la nueva variable */
+    color: black;
+    background-color: var(--accent-dark);
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
 }
@@ -98,13 +104,16 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem;
     background-color: var(--white-color);
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
+    /* Se ajusta para móviles */
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .header.scrolled {
@@ -123,7 +132,10 @@ p {
 .nav ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    /* Se ajusta para móviles */
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .nav a {
@@ -136,12 +148,13 @@ p {
 .nav a::after {
     content: '';
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: 0;
     width: 0;
     height: 2px;
     background-color: var(--accent-color);
     transition: width 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .nav a:hover::after {
@@ -152,47 +165,41 @@ p {
 /* Hero Section (Parallax & Overlay) */
 .hero-section {
     position: relative;
-    height: 65vh; /* Ocupa la altura completa de la ventana */
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #fff;
     overflow: hidden;
-
-    /* --- Aquí se inserta la imagen de fondo --- */
-    background-image: url('Justice.jpg'); /* 👈 Cambia 'law-background.jpg' por el nombre de tu archivo */
-    background-size: cover; /* Ajusta la imagen para que cubra toda la sección */
-    background-position: center center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    background-image: url('img/justice.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .hero-overlay {
-    /* Mantiene la capa semitransparente sobre la imagen para que el texto sea legible */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Color oscuro con 50% de opacidad */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* El contenido del hero debe tener un z-index para estar sobre la capa de opacidad */
 .hero-content {
     position: relative;
     z-index: 1;
-}
 }
 
 .hero-section.scrolled .hero-overlay {
     background: linear-gradient(to right, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.8));
 }
 
-
 /* Sections */
 section {
-    padding: 6rem 2rem;
+    padding: 4rem 1rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -205,7 +212,7 @@ section {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2.5rem;
     margin-top: 3rem;
 }
@@ -246,6 +253,8 @@ section {
     text-align: left;
     background-color: var(--white-color);
     gap: 3rem;
+    flex-direction: column;
+    text-align: center;
 }
 
 .about-content, .about-image {
@@ -306,10 +315,9 @@ section {
 
 .footer-container {
     display: grid;
-    /* Usamos un max-width para que el grid no se extienda por toda la pantalla */
-    max-width: 1000px; 
-    margin: 0 auto; /* Centramos el grid en la página */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 1000px;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
     gap: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -318,7 +326,7 @@ section {
 .footer-block {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra el contenido horizontalmente */
+    align-items: center;
     text-align: center;
 }
 
@@ -335,7 +343,7 @@ section {
     font-size: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra los iconos y el texto del párrafo */
+    justify-content: center;
     gap: 10px;
 }
 
@@ -395,17 +403,17 @@ section {
     100% { transform: scale(0); opacity: 0; }
 }
 
-
 /* WhatsApp Button */
 .whatsapp-button {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 20px;
+    right: 20px;
     background-color: #25D366;
     color: var(--white-color);
     border-radius: 50%;
-    width: 40px;
-    height: 0px;
+    /* Se corrige la altura y se usa 'padding' para que el área sea visible y clicable */
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -419,17 +427,15 @@ section {
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-.whatsapp-button svg {
+.whatsapp-button img {
+    /* Se ajusta el tamaño de la imagen SVG */
     width: 30px;
     height: 30px;
-    fill: var(--white-color);
-    stroke: var(--white-color);
 }
-
 
 /* Cookie Consent Modal */
 .cookie-consent-modal {
-    display: none; /* Initially hidden by default */
+    display: none;
     position: fixed;
     bottom: 20px;
     left: 50%;
@@ -489,8 +495,8 @@ section {
 }
 
 .cookie-accept-button:hover {
-    background-color: var(--hover-dark);
-    border-color: var(--hover-dark);
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
     transform: scale(1.05);
 }
 
@@ -509,73 +515,60 @@ section {
     to { opacity: 1; transform: translateY(0) translateX(-50%); }
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2.2rem; }
-    .hero-section {
-        height: 60vh;
-        padding: 8rem 1rem;
-    }
-    .about-section {
-        flex-direction: column;
-        text-align: center;
-
-
-    }
-    .about-image {
-        margin-top: 2rem;
-    }
-
-@media (max-width: 768px) {
+/*
+    Enfoque Mobile-First:
+    Ahora el CSS base está optimizado para móviles.
+    Las media queries solo se usan para "expandir" el diseño a pantallas más grandes.
+*/
+@media (min-width: 768px) {
     .header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 1rem 2rem;
     }
 
     .nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    .nav a::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .nav a:hover::after {
-        width: 50%;
+        flex-direction: row;
+        gap: 2rem;
     }
 
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.8rem; }
-    p { font-size: 1rem; }
-    
+    .nav a::after {
+        left: 0;
+        transform: none;
+    }
+
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2.2rem; }
+    p { font-size: 1.15rem; }
+
     section {
-        padding: 4rem 1rem;
+        padding: 6rem 2rem;
+    }
+
+    .hero-section {
+        height: 65vh;
+        padding: 8rem 2rem;
     }
 
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
-    .whatsapp-button {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
+    .about-section {
+        flex-direction: row;
+        text-align: left;
     }
-    .whatsapp-button svg {
-        width: 25px;
-        height: 25px;
+
+    .about-image {
+        margin-top: 0;
     }
-    
+
     .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    
-    .footer-block p {
-        justify-content: center;
-    }
+}
+
+@media (min-width: 900px) {
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.8rem; }
 }
