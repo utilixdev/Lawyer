@@ -3,7 +3,6 @@
     --primary-color: #2c3e50; /* Azul oscuro elegante */
     --secondary-color: #34495e; /* Azul grisáceo */
     --accent-color: #3498db; /* Azul vibrante para CTA */
-    /* Mejora de accesibilidad: Se aumentó el contraste del texto para cumplir con WCAG */
     --text-color: #34495e; /* Antes era #7f8c8d, ahora con mejor contraste */
     --light-bg: #f4f7f6; /* Fondo muy claro */
     --dark-bg: #2c3e50; /* Fondo oscuro para footer */
@@ -27,7 +26,6 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-bg);
-    /* Se elimina 'overflow-x: hidden' para evitar problemas con el scroll en algunos dispositivos */
 }
 
 a {
@@ -37,7 +35,6 @@ a {
 }
 
 a:hover {
-    /* Se ajusta el color de hover para que sea consistente con la paleta de colores */
     color: var(--accent-dark);
     transform: translateY(-2px);
 }
@@ -48,7 +45,6 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-/* Se mejoran los tamaños de fuente para una mejor experiencia móvil (Mobile-first) */
 h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 1rem; }
 h2 { font-size: 1.8rem; margin-bottom: 2.5rem; position: relative; display: inline-block;}
 h3 { font-size: 1.5rem; margin-bottom: 1rem; }
@@ -92,15 +88,13 @@ p {
 }
 
 .cta-button:hover {
-    /* El fondo del botón se oscurece, pero el color del texto se mantiene blanco */
-    color: var(--white-color); 
+    color: var(--white-color);
     background-color: var(--accent-dark);
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
 }
 
 /* Header */
-/* Base Styles (Mobile-first) */
 .header {
     display: flex;
     justify-content: space-between;
@@ -112,8 +106,7 @@ p {
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    /* Se elimina flex-direction: column; de aquí para que la cabecera quede en una sola fila por defecto */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben */
+    flex-wrap: wrap;
 }
 
 .header.scrolled {
@@ -132,21 +125,20 @@ p {
 .nav ul {
     list-style: none;
     display: flex;
-    gap: 1rem; /* Espacio más compacto para móviles */
+    gap: 1rem;
     align-items: center;
     justify-content: center;
-    /* Se elimina flex-direction: column; de aquí para que los enlaces queden en fila */
 }
-/* --- Media query para escritorio --- */
+
 @media (min-width: 768px) {
     .header {
-        flex-direction: row; /* En escritorios, la cabecera vuelve a la disposición horizontal */
+        flex-direction: row;
         gap: 2rem;
         padding: 1rem 2rem;
     }
 
     .nav ul {
-        flex-direction: row; /* En escritorios, los enlaces de navegación se disponen en fila */
+        flex-direction: row;
         gap: 2rem;
     }
     
@@ -158,8 +150,6 @@ p {
     h1 { font-size: 2.8rem; }
     h2 { font-size: 2.2rem; }
     p { font-size: 1.15rem; }
-
-    /* ... el resto de las media queries ... */
 }
 
 .nav a {
@@ -185,7 +175,6 @@ p {
     width: 100%;
 }
 
-
 /* Hero Section (Parallax & Overlay) */
 .hero-section {
     position: relative;
@@ -196,7 +185,7 @@ p {
     text-align: center;
     color: #fff;
     overflow: hidden;
-    background-image: url('Justice.webp');
+    /* ¡IMPORTANTE! Se elimina el background-image para que la carga la controle el HTML */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -216,10 +205,6 @@ p {
     position: relative;
     z-index: 1;
 }
-
-/*.hero-section.scrolled .hero-overlay {
-    background: linear-gradient(to right, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.8));
-}*/
 
 /* Sections */
 section {
@@ -435,7 +420,6 @@ section {
     background-color: #25D366;
     color: var(--white-color);
     border-radius: 50%;
-    /* Se corrige la altura y se usa 'padding' para que el área sea visible y clicable */
     width: 50px;
     height: 50px;
     display: flex;
@@ -452,7 +436,6 @@ section {
 }
 
 .whatsapp-button img {
-    /* Se ajusta el tamaño de la imagen SVG */
     width: 30px;
     height: 30px;
 }
